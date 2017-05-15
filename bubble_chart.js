@@ -1,7 +1,7 @@
 function bubbleChart() {
     var width = 960,
         height = 960,
-        maxRadius = 6,
+        maxRadius = 24,
         //clusterPadding = 6,
         columnForColors = "category",
         columnForRadius = "views";
@@ -46,7 +46,7 @@ function bubbleChart() {
             return +d[columnForRadius];
         }), d3.max(data, function(d) {
             return +d[columnForRadius];
-        })]).range([5, 18])
+        })]).range([6, 18])
 
         var node = svg.selectAll("circle")
             .data(data)
