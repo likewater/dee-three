@@ -1,7 +1,7 @@
 function bubbleChart() {
     var width = 960,
         height = 960,
-        maxRadius = 24,
+        maxRadius = 6,
         //clusterPadding = 6,
         columnForColors = "category",
         columnForRadius = "views";
