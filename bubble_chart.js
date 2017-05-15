@@ -2,6 +2,7 @@ function bubbleChart() {
     var width = 960,
         height = 960,
         maxRadius = 6,
+        //clusterPadding = 6,
         columnForColors = "category",
         columnForRadius = "views";
 
@@ -26,7 +27,7 @@ function bubbleChart() {
 
 
         var simulation = d3.forceSimulation(data)
-            .force("charge", d3.forceManyBody().strength([-50]))
+            .force("charge", d3.forceManyBody().strength([-60]))
             .force("x", d3.forceX())
             .force("y", d3.forceY())
             .on("tick", ticked);
@@ -55,7 +56,8 @@ function bubbleChart() {
                 return scaleRadius(d[columnForRadius])
             })
             .style("fill", function(d) {
-                return colorCircles(d[columnForColors])
+                 return colorCircles(d[columnForColors])
+                //return colorCircles(d[d3.schemeDark2])
             })
             .attr('transform', 'translate(' + [width / 2, height / 2] + ')')
             .on("mouseover", function(d) {
