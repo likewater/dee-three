@@ -4,23 +4,9 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <h1>Oregon Wine Grapes by Variety: Annual Tons Harvested</h1>
   <div class="container-fluid">
-    <div class="jumbotron">
-      <h1>D3 Bubble Chart</h1>
-    </div>
-    <nav class="navbar navbar-inverse">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand">Bubble Chart</a>
-        </div>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a routerLink="">Link</a></li>
-          <li><a routerLink="">Link</a></li>
-        </ul>
-      </div>
-    </nav>
-    <div class="panel panel-warning">
-      <div class="panel-heading"><h2>Panel Heading</h2></div>
+      <div class="panel panel-warning">
       <div class="panel-body">
         <div class="chart-example" id="chart"><svg></svg>
         </div>
@@ -29,7 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.6.0/d3.min.js"></script>
     <script src="bubble_chart.js"></script>
     <script>
-        d3.csv(src="http://localhost:8000/desktop/medium_january.csv", function(error, data) {
+        d3.csv(src="http://localhost:8000/desktop/bubble_chart.csv", function(error, data) {
           if (error) {
               console.error('Error getting or parsing the data.');
               throw error;

@@ -1,10 +1,9 @@
 function bubbleChart() {
     var width = 960,
         height = 960,
-        maxRadius = 6,
-        //clusterPadding = 6,
-        columnForColors = "category",
-        columnForRadius = "views";
+        maxRadius = 500,
+        columnForColors = "title",
+        columnForRadius = "tons";
 
     function chart(selection) {
         var data = selection.enter().data();
@@ -22,12 +21,12 @@ function bubbleChart() {
             .style("border-radius", "6px")
             .style("text-align", "center")
             .style("font-family", "monospace")
-            .style("width", "400px")
+            .style("width", "200px")
             .text("");
 
 
         var simulation = d3.forceSimulation(data)
-            .force("charge", d3.forceManyBody().strength([-60]))
+            .force("charge", d3.forceManyBody().strength([-370]))
             .force("x", d3.forceX())
             .force("y", d3.forceY())
             .on("tick", ticked);
@@ -46,7 +45,7 @@ function bubbleChart() {
             return +d[columnForRadius];
         }), d3.max(data, function(d) {
             return +d[columnForRadius];
-        })]).range([6, 18])
+        })]).range([24, 72])
 
         var node = svg.selectAll("circle")
             .data(data)
@@ -57,11 +56,10 @@ function bubbleChart() {
             })
             .style("fill", function(d) {
                  return colorCircles(d[columnForColors])
-                //return colorCircles(d[d3.schemeDark2])
             })
             .attr('transform', 'translate(' + [width / 2, height / 2] + ')')
             .on("mouseover", function(d) {
-                tooltip.html(d[columnForColors] + "<br>" + d.title + "<br>" + d[columnForRadius] + " views");
+                tooltip.html(d[columnForColors] + "<br>" + d.category + "<br>" + d[columnForRadius] + " tons");
                 return tooltip.style("visibility", "visible");
             })
             .on("mousemove", function() {
@@ -106,4 +104,12 @@ function bubbleChart() {
     };
 
     return chart;
+
+
+
+
+
+
+
+
 }
